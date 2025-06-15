@@ -555,12 +555,31 @@ const ExpectedImpactPage = () => {
                         className="bg-gray-50 rounded-lg p-6"
                       >
                         <div className="text-center mb-4">
-                          <div className="text-sm text-gray-600 mb-1">{metric.name}</div>
-                          <div className="text-2xl font-bold text-gray-900 mb-1">
-                            {metric.current}{metric.unit}
-                          </div>
-                          <div className="text-lg font-semibold text-primary-600">
-                            → {metric.target}{metric.unit}
+                          <div className="text-sm text-gray-600 mb-2">{metric.name}</div>
+                          
+                          {/* After 수치를 더 강조 */}
+                          <motion.div 
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: categoryIndex * 0.2 + index * 0.1 + 0.3 }}
+                            className="relative"
+                          >
+                            <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600 mb-2">
+                              {metric.target}{metric.unit}
+                            </div>
+                            <div className="absolute -top-1 -right-1">
+                              <Sparkles className="w-5 h-5 text-yellow-500" />
+                            </div>
+                          </motion.div>
+
+                          {/* Before 수치는 작게 */}
+                          <div className="flex items-center justify-center gap-2 text-gray-500">
+                            <span className="text-sm">현재</span>
+                            <span className="text-lg font-medium line-through decoration-red-300">
+                              {metric.current}{metric.unit}
+                            </span>
+                            <ArrowUp className="w-4 h-4 text-green-500" />
                           </div>
                         </div>
                         

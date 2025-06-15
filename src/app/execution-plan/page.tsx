@@ -36,6 +36,43 @@ const ExecutionPlanPage = () => {
   const [budgetView, setBudgetView] = useState('total')
   const [simulationRunning, setSimulationRunning] = useState(false)
 
+  // 단계별 상세 예산 배분 데이터
+  const detailedBudgetByPhase = [
+    {
+      phase: 1,
+      title: '기반 구축 단계',
+      total: 400000000, // 4억원
+      percentage: 36,
+      breakdown: [
+        { category: 'AI 플랫폼 개발', amount: 240000000, percentage: 60, color: 'bg-blue-500' },
+        { category: '인력 채용/교육', amount: 100000000, percentage: 25, color: 'bg-green-500' },
+        { category: '인프라 구축', amount: 60000000, percentage: 15, color: 'bg-purple-500' }
+      ]
+    },
+    {
+      phase: 2,
+      title: '본격 운영 단계',
+      total: 450000000, // 4.5억원
+      percentage: 41,
+      breakdown: [
+        { category: '서비스 운영', amount: 180000000, percentage: 40, color: 'bg-emerald-500' },
+        { category: '마케팅 홍보', amount: 157500000, percentage: 35, color: 'bg-orange-500' },
+        { category: '기능 고도화', amount: 112500000, percentage: 25, color: 'bg-cyan-500' }
+      ]
+    },
+    {
+      phase: 3,
+      title: '확산 및 발전 단계',
+      total: 250000000, // 2.5억원
+      percentage: 23,
+      breakdown: [
+        { category: '확산 지원', amount: 125000000, percentage: 50, color: 'bg-pink-500' },
+        { category: '수익화 모델', amount: 75000000, percentage: 30, color: 'bg-indigo-500' },
+        { category: '연구개발', amount: 50000000, percentage: 20, color: 'bg-red-500' }
+      ]
+    }
+  ]
+
   // 3단계 로드맵 데이터
   const roadmapPhases = [
     {
@@ -427,57 +464,98 @@ const ExecutionPlanPage = () => {
                 <div className="card">
                   <h3 className="text-xl font-bold text-gray-900 mb-6">단계별 예산 배분</h3>
                   
-                  {/* 바 차트 */}
-                  <div className="mb-6">
-                    <BarChart 
-                      data={roadmapPhases.map((phase, index) => ({
-                        label: `Phase ${phase.phase}`,
-                        value: parseInt(phase.budget.match(/\d+/)?.[0] || '0'),
-                        color: phase.color,
-                        period: phase.period
-                      }))}
-                      title=""
-                      horizontal={false}
-                      animate={true}
-                      showValues={false}
-                      height={200}
-                    />
+                  {/* 스택 바 차트 */}
+                  <div className="mb-8">
+                    <div className="space-y-4">
+                      {detailedBudgetByPhase.map((phase, phaseIndex) => (
+                        <motion.div
+                          key={phaseIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: phaseIndex * 0.2 }}
+                          className="bg-gray-50 rounded-lg p-4"
+                        >
+                          <div className="flex items-center justify-between mb-3">
+                            <h4 className="font-semibold text-gray-900">
+                              Phase {phase.phase}: {phase.title}
+                            </h4>
+                            <span className="font-bold text-primary-600">
+                              {(phase.total / 100000000).toFixed(1)}억원 ({phase.percentage}%)
+                            </span>
+                          </div>
+                          
+                          {/* 스택 바 */}
+                          <div className="w-full bg-gray-200 rounded-full h-8 mb-3 overflow-hidden">
+                            <div className="flex h-full">
+                              {phase.breakdown.map((item, itemIndex) => (
+                                <motion.div
+                                  key={itemIndex}
+                                  initial={{ width: 0 }}
+                                  whileInView={{ width: `${item.percentage}%` }}
+                                  viewport={{ once: true }}
+                                  transition={{ delay: phaseIndex * 0.2 + itemIndex * 0.1 }}
+                                  className={`${item.color} flex items-center justify-center text-white text-xs font-medium`}
+                                  style={{ minWidth: item.percentage > 15 ? 'auto' : '0' }}
+                                >
+                                  {item.percentage > 15 && `${item.percentage}%`}
+                                </motion.div>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          {/* 상세 범례 */}
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            {phase.breakdown.map((item, itemIndex) => (
+                              <motion.div
+                                key={itemIndex}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: phaseIndex * 0.2 + itemIndex * 0.1 + 0.3 }}
+                                className="flex items-center gap-2"
+                              >
+                                <div className={`w-3 h-3 ${item.color} rounded-sm`} />
+                                <span className="text-sm text-gray-700 flex-1">{item.category}</span>
+                                <span className="text-sm font-medium text-gray-900">
+                                  {(item.amount / 100000000).toFixed(1)}억
+                                </span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* 상세 정보 */}
-                  <div className="space-y-4">
-                    {roadmapPhases.map((phase, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        className="bg-gray-50 rounded-lg p-4"
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="font-semibold text-gray-900">{phase.title}</h4>
-                          <span className="font-bold text-primary-600">{phase.budget}</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: phase.budget.match(/\d+/)?.[0] + '%' }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 + 0.3 }}
-                            className={`bg-gradient-to-r ${phase.color} h-2 rounded-full`}
-                          />
-                        </div>
-                        <div className="text-sm text-gray-600 mt-1">{phase.period}</div>
-                      </motion.div>
-                    ))}
+                  {/* 전체 예산 요약 */}
+                  <div className="bg-gradient-to-r from-primary-50 to-success-50 rounded-lg p-6">
+                    <h4 className="font-bold text-gray-900 mb-4">💰 투자 효율성</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                      <div>
+                        <div className="text-2xl font-bold text-blue-600">60%</div>
+                        <div className="text-sm text-gray-600">기술 개발</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-green-600">25%</div>
+                        <div className="text-sm text-gray-600">운영 관리</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-orange-600">12%</div>
+                        <div className="text-sm text-gray-600">마케팅</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-purple-600">3%</div>
+                        <div className="text-sm text-gray-600">예비비</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* ROI 시뮬레이터 */}
                 <ROICalculator 
                   initialInvestment={1100000000}
-                  initialBirthRateIncrease={5.0}
+                  initialBirthRateIncrease={0.09}
                   initialUsers={10000}
                 />
               </div>
@@ -524,9 +602,32 @@ const ExecutionPlanPage = () => {
                         className="bg-gray-50 rounded-lg p-6"
                       >
                         <div className="text-center mb-4">
-                          <div className="text-2xl font-bold text-gray-900 mb-1">{kpi.current}</div>
-                          <div className="text-sm text-gray-600 mb-2">{kpi.name}</div>
-                          <div className="text-lg font-semibold text-primary-600">목표: {kpi.target}</div>
+                          <div className="text-sm text-gray-600 mb-3">{kpi.name}</div>
+                          
+                          {/* After 수치를 크게 강조 */}
+                          <motion.div 
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: categoryIndex * 0.2 + index * 0.1 + 0.3 }}
+                            className="relative"
+                          >
+                            <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600 mb-2">
+                              {kpi.target}
+                            </div>
+                            <div className="absolute -top-2 -right-2">
+                              <Target className="w-6 h-6 text-yellow-500" />
+                            </div>
+                          </motion.div>
+
+                          {/* Before 수치는 작게 */}
+                          <div className="flex items-center justify-center gap-2 text-gray-500 mb-2">
+                            <span className="text-sm">현재</span>
+                            <span className="text-lg font-medium line-through decoration-red-300">
+                              {kpi.current}
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-green-500" />
+                          </div>
                         </div>
                         
                         <div className="relative">
