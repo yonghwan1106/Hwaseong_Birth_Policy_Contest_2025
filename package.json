@@ -1,0 +1,55 @@
+{
+  "name": "hwaseong-ai-childcare-website",
+  "version": "1.0.0",
+  "description": "화성시 AI 육아 생태계 정책 제안 웹사이트",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "framer-motion": "^10.16.0",
+    "react-query": "^3.39.0",
+    "zustand": "^4.4.0",
+    "react-hook-form": "^7.47.0",
+    "chart.js": "^4.4.0",
+    "react-chartjs-2": "^5.2.0",
+    "d3": "^7.8.0",
+    "@types/d3": "^7.4.0",
+    "three": "^0.157.0",
+    "@types/three": "^0.157.0",
+    "@react-three/fiber": "^8.15.0",
+    "@react-three/drei": "^9.88.0",
+    "react-spring": "^9.7.0",
+    "lucide-react": "^0.290.0",
+    "clsx": "^2.0.0",
+    "class-variance-authority": "^0.7.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/forms": "^0.5.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^14.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+    "*.{json,md,css}": ["prettier --write"]
+  }
+}
