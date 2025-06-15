@@ -66,7 +66,7 @@ const ExpectedImpactPage = () => {
       additionalBirths: Math.max(totalAdditionalBirths, 5), // 최소 5명
       newBirthRate: newBirthRate.toFixed(2),
       totalEconomicEffect: Math.max(totalEconomicEffect, 50), // 최소 50억원
-      roi: Math.max(roi.toFixed(0), 500), // 최소 500%
+      roi: Math.max(roi, 500).toFixed(0), // 최소 500%
       jobCreation: Math.max(jobCreation, 10),
       healthcareImprovement: Math.max(healthcareImprovement, 15),
       userSatisfaction: Math.min(95, 70 + (userAdoption * 0.3)),
@@ -394,7 +394,7 @@ const ExpectedImpactPage = () => {
                     </p>
                     <p className="text-gray-700">
                       <strong>수익성:</strong> ROI {calculatedEffects.roi}%로 투자 대비 
-                      {calculatedEffects.roi > 1000 ? '매우 높은' : calculatedEffects.roi > 500 ? '높은' : '적정한'} 
+                      {Number(calculatedEffects.roi) > 1000 ? '매우 높은' : Number(calculatedEffects.roi) > 500 ? '높은' : '적정한'} 
                       수익률 확보
                     </p>
                   </div>

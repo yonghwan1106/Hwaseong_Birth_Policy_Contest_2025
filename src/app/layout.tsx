@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hwaseong-ai-childcare.vercel.app'),
   title: '화성 AI 육아 생태계 | 미래 육아의 허브, 화성시',
   description: '전국 최초 지자체 주도 AI 기반 통합 육아 지원 플랫폼으로 저출생 문제를 해결하는 혁신적 정책 제안',
   keywords: [
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: process.env.NEXT_PUBLIC_SITE_URL,
+    url: '/',
     title: '화성 AI 육아 생태계 | 미래 육아의 허브, 화성시',
     description: '전국 최초 지자체 주도 AI 기반 통합 육아 지원 플랫폼으로 저출생 문제를 해결하는 혁신적 정책 제안',
     siteName: '화성 AI 육아 생태계',

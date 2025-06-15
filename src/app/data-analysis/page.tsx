@@ -26,7 +26,7 @@ import Footer from '@/components/layout/Footer'
 
 const DataAnalysisPage = () => {
   const [activeChart, setActiveChart] = useState('trend')
-  const [selectedPeriod, setSelectedPeriod] = useState('3years')
+  const [selectedPeriod, setSelectedPeriod] = useState<'3years' | '1year'>('3years')
   const [selectedRegion, setSelectedRegion] = useState('hwaseong')
 
   const trendData = {

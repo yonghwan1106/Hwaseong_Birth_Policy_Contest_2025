@@ -13,6 +13,7 @@
 2. GitHub 저장소 목록에서 해당 프로젝트 선택
 3. "Import" 클릭
 4. 다음 설정 확인:
+<<<<<<< HEAD
  Project Name: hwaseong-ai-childcare (또는 원하는 이름)
  Framework Preset: Next.js ✅ (자동 감지)
  Root Directory: ./ ✅
@@ -20,6 +21,12 @@
  Output Directory: .next ✅
  Install Command: npm install ✅
 
+=======
+   - **Framework Preset**: Next.js (자동 감지됨)
+   - **Root Directory**: `./` (기본값)
+   - **Build Command**: `npm run build` (자동 설정됨)
+   - **Output Directory**: `.next` (자동 설정됨)
+>>>>>>> 1e601b5f5b0cfbdbab22d956fb0b052a3455add9
 5. "Deploy" 클릭
 
 ### 3단계: 배포 완료
