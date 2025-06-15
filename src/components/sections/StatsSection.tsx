@@ -32,17 +32,17 @@ const StatsSection = () => {
     {
       id: 'economic',
       icon: DollarSign,
-      value: 108,
+      value: 324,
       suffix: '억원',
-      label: '연간 경제효과',
-      description: '3년 누적 324억원',
+      label: '3년 경제효과',
+      description: '연간 108억원 × 3년',
       color: 'from-yellow-500 to-orange-600',
       delay: 0.4
     },
     {
       id: 'expansion',
       icon: Globe,
-      value: 10,
+      value: 8,
       suffix: '개',
       label: '확산 지자체',
       description: '전국 표준 모델',

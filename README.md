@@ -1,182 +1,131 @@
 # 화성시 AI 육아 생태계 정책 제안 웹사이트
 
-## 🎯 프로젝트 개요
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
 
-이 웹사이트는 **2025년 화성특례시 저출생 극복 정책 제안 공모전**을 위해 제작된 혁신적인 정책 제안서입니다.
+## 🚀 프로젝트 개요
 
-### 핵심 제안: "화성 AI 육아 생태계"
-- 전국 최초 지자체 주도 AI 기반 통합 육아 지원 플랫폼
-- 투자 수익률 2,945%의 혁신적 효율성
-- 11억원 투자로 108억원 연간 경제효과 창출
+화성시 저출생 극복 정책 제안 공모전을 위한 인터랙티브 웹사이트입니다.
 
-## 🚀 주요 기능
+- **목적**: 제안서 지면의 한계를 넘어서는 완전한 정책 제안 전달
+- **타겟**: 화성시 공모전 심사위원 및 시민
+- **특징**: AI 체험, 데이터 시각화, ROI 시뮬레이터 등 인터랙티브 요소
 
-### 1. 인터랙티브 체험
-- **실제 작동하는 앱 프로토타입**: 단순 목업이 아닌 실제 상호작용 가능
-- **AI 상담 시뮬레이션**: 실시간 채팅 체험
-- **ROI 계산기**: 다양한 시나리오 시뮬레이션
+## 🎯 핵심 기능
 
-### 2. 데이터 기반 설계
-- **네이버 트렌드 분석**: 실제 검색 트렌드 데이터 활용
-- **과학적 ROI 계산**: 통계청, KDI 데이터 기반
-- **글로벌 벤치마킹**: 핀란드, 덴마크, 일본 사례 분석
+- 📊 실시간 데이터 시각화 (네이버 트렌드 기반)
+- 🤖 AI 육아 상담 시스템 체험
+- 💰 ROI 시뮬레이터 (투자 수익률 계산)
+- 📱 모바일 앱 프로토타입 데모
+- 🎮 정책 효과 시뮬레이션
 
-### 3. 5대 핵심 구성요소
-- 🤖 **AI 24시간 육아 상담**
-- 📈 **개인 맞춤형 발달 가이드**
-- 👥 **스마트 돌봄 매칭**
-- 📊 **데이터 기반 정책 피드백**
-- 🏢 **지역 기업 협력 생태계**
+## 🛠️ 기술 스택
 
-## 💻 기술 스택
+- **Frontend**: Next.js 14, React 18, TypeScript
+- **Styling**: Tailwind CSS, Framer Motion
+- **Charts**: Chart.js, D3.js
+- **3D**: Three.js, React Three Fiber
+- **Deployment**: Vercel
 
-### Frontend
-- **Next.js 14** - App Router, SSG/ISR
-- **TypeScript** - 타입 안전성
-- **Tailwind CSS** - 빠른 스타일링
-- **Framer Motion** - 고급 애니메이션
+## 🚀 로컬 개발 환경 설정
 
-### 인터랙티브 요소
-- **Chart.js** - 데이터 시각화
-- **Three.js** - 3D 시스템 아키텍처
-- **React Hook Form** - 폼 관리
-- **Zustand** - 상태 관리
+```bash
+# 1. 저장소 클론
+git clone [YOUR_REPO_URL]
+cd hwaseong-ai-childcare-website
 
-### 디자인 시스템
-- **커스텀 컬러 팔레트** - 화성시 브랜드 + AI 테마
-- **Pretendard 폰트** - 한글 최적화
-- **반응형 디자인** - 모든 디바이스 최적화
-- **접근성 고려** - WCAG 준수
+# 2. 의존성 설치
+npm install
 
-## 🎨 디자인 원칙
+# 3. 개발 서버 실행
+npm run dev
 
-### 브랜딩
-- **핵심 메시지**: "미래 육아의 허브, 화성시"
-- **톤앤매너**: 혁신적이면서도 따뜻한, 전문적이면서도 친근한
-- **컬러**: 화성시 브랜드 + AI 블루 + 따뜻한 육아 컬러
+# 4. 브라우저에서 확인
+# http://localhost:3000
+```
 
-### UX 원칙
-- **직관적 네비게이션**: 한번에 찾을 수 있는 정보 구조
-- **몰입형 스토리텔링**: 스크롤에 따른 단계적 정보 노출
-- **인터랙티브 요소**: 클릭하고 체험할 수 있는 살아있는 웹사이트
+## 📦 빌드 및 배포
+
+### 로컬 빌드 테스트
+```bash
+# 프로덕션 빌드
+npm run build
+
+# 프로덕션 서버 실행
+npm run start
+```
+
+### Vercel 배포 (권장)
+1. [Vercel](https://vercel.com)에서 계정 생성
+2. GitHub 저장소 연결
+3. 자동 배포 완료
+
+### 기타 배포 옵션
+- Netlify
+- AWS Amplify  
+- GitHub Pages (정적 배포)
 
 ## 📁 프로젝트 구조
 
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx         # 루트 레이아웃
-│   └── page.tsx           # 메인 페이지
-├── components/            # 컴포넌트
+│   ├── page.tsx           # 홈페이지
+│   ├── data-analysis/     # 데이터 분석 페이지
+│   ├── ai-ecosystem/      # AI 생태계 페이지
+│   ├── execution-plan/    # 실행 계획 페이지
+│   ├── expected-impact/   # 기대 효과 페이지
+│   └── experience/        # 체험하기 페이지
+├── components/            # 재사용 컴포넌트
 │   ├── layout/           # 레이아웃 컴포넌트
-│   │   ├── Navigation.tsx
-│   │   └── Footer.tsx
-│   └── sections/         # 섹션 컴포넌트
-│       ├── HeroSection.tsx
-│       ├── StatsSection.tsx
-│       ├── FeaturesSection.tsx
-│       ├── AppDemo.tsx
-│       ├── Partnership.tsx
-│       ├── RoadmapSection.tsx
-│       ├── ImpactSection.tsx
-│       └── CTASection.tsx
-├── data/                 # 데이터 파일
-│   └── projectData.ts    # 프로젝트 핵심 데이터
-├── types/                # TypeScript 타입 정의
-│   └── index.ts
-└── styles/               # 스타일 파일
-    └── globals.css       # 글로벌 스타일
+│   ├── sections/         # 섹션 컴포넌트
+│   ├── charts/           # 차트 컴포넌트
+│   └── interactive/      # 인터랙티브 컴포넌트
+├── data/                 # 정적 데이터
+├── lib/                  # 유틸리티 함수
+├── styles/               # 스타일 파일
+└── types/                # TypeScript 타입 정의
 ```
 
-## 🚀 개발 가이드
+## 🎨 디자인 시스템
 
-### 시작하기
-```bash
-# 의존성 설치
-npm install
+- **컬러**: 화성시 브랜드 컬러 + AI 테마
+- **타이포그래피**: Pretendard 폰트
+- **애니메이션**: Framer Motion 기반 마이크로 인터랙션
+- **반응형**: 모바일 퍼스트 디자인
 
-# 개발 서버 실행
-npm run dev
+## 📊 주요 성과 지표
 
-# 빌드
-npm run build
+- **Lighthouse Score**: 95+ (목표)
+- **First Contentful Paint**: < 1.5초
+- **Time to Interactive**: < 3초
+- **Core Web Vitals**: 모든 지표 통과
 
-# 프로덕션 서버 실행
-npm start
-```
+## 🔧 개발 도구
 
-### 브라우저 지원
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-### 성능 목표
-- Lighthouse Score: 95+ (모든 항목)
-- First Contentful Paint: < 1.5초
-- Cumulative Layout Shift: < 0.1
-- Time to Interactive: < 3초
-
-## 📊 프로젝트 성과 지표
-
-### 정량적 효과
-- **투자 수익률**: 2,945%
-- **출생률 증가**: 1.01명 → 1.1명
-- **연간 경제효과**: 108억원
-- **확산 가능성**: 10개 지자체
-
-### 차별화 요소
-- **전국 최초** 지자체 주도 AI 플랫폼
-- **실제 구현 가능** 수준의 상세 설계
-- **대기업 파트너십** 확정 협력
-- **데이터 기반** 객관적 분석
-
-## 🏆 공모전 전략
-
-### 심사 기준 대응
-- **내용적합성(20점)**: 화성시 특성 + 저출생 문제 해결
-- **실행가능성(20점)**: 구체적 예산계획 + 3단계 로드맵
-- **창의성(20점)**: 전국 최초 AI 플랫폼 + 혁신적 접근
-- **지속성(20점)**: 자립 운영 모델 + 수익 구조
-- **파급성(20점)**: 전국 확산 모델 + 경제효과
-
-### 타겟 사용자
-- **주 사용자**: 화성시 공모전 심사위원
-- **부 사용자**: 화성시 공무원, 시민 투표 참여자
-- **확장 사용자**: 언론, 타 지자체 관계자
-
-## 👨‍💻 개발자 정보
-
-**박용환** (크리에이티브 넥서스)
-- 📧 sanoramyun8@gmail.com
-- 📱 010-7939-3123
-- 🏢 경기도 용인시 수지구 성복2로 126
-- 🎯 아이디어 공모전 전문 콘텐츠 크리에이터
-
-### 프로젝트 참여도
-- **기여도**: 100% (개인 참여)
-- **역할**: 기획, 디자인, 개발, 콘텐츠 제작
+- **Code Quality**: ESLint + Prettier
+- **Pre-commit**: Husky + lint-staged
+- **Testing**: Jest + Testing Library (예정)
+- **CI/CD**: GitHub Actions
 
 ## 📝 라이선스
 
-이 프로젝트의 모든 권리는 채택 시 화성시에 귀속됩니다.
+이 프로젝트는 화성시 저출생 극복 정책 제안 공모전을 위해 제작되었습니다.
+
+## 👨‍💻 개발자
+
+**박용환** (크리에이티브 넥서스)
+- Email: sanoramyun8@gmail.com
+- Tel: 010-7939-3123
+
+## 🏆 공모전 정보
+
+- **공모명**: 2025년 화성특례시 저출생 극복 정책 제안 공모전
+- **주최**: 화성특례시
+- **분야**: 돌봄·양육 환경 개선
+- **제출기한**: 2025년 7월 6일 23:00
 
 ---
 
-## 🌟 특별한 특징
+**Live Demo**: [https://hwaseong-ai-childcare.vercel.app](https://hwaseong-ai-childcare.vercel.app)
 
-### 1. 실제 작동하는 프로토타입
-단순한 목업이 아닌 실제로 상호작용 가능한 앱 시연이 포함되어 있습니다.
-
-### 2. 데이터 기반 설계
-네이버 트렌드, 통계청, KDI 등의 실제 데이터를 기반으로 한 과학적 접근입니다.
-
-### 3. 혁신적 효율성
-기존 정책 대비 1/30 비용으로 10배 효과를 달성하는 혁신적 모델입니다.
-
-### 4. 완성도 높은 구현
-실제 개발 가능한 수준의 상세한 기술 설계와 구현 계획이 포함되어 있습니다.
-
----
-
-**"미래 육아의 허브, 화성시"** - 혁신적인 AI 기술과 인간의 따뜻함이 조화된 새로운 육아 패러다임을 제시합니다.
+**배포 상태**: [![Vercel](https://vercelbadges.vercel.app/hwaseong-ai-childcare)](https://hwaseong-ai-childcare.vercel.app)

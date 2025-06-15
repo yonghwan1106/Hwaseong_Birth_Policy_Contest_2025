@@ -10,12 +10,12 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState('')
 
   const navItems = [
-    { id: 'home', label: '홈', href: '#home' },
-    { id: 'features', label: 'AI 생태계', href: '#features-section' },
+    { id: 'home', label: '홈', href: '/' },
     { id: 'data', label: '데이터 분석', href: '/data-analysis' },
-    { id: 'roadmap', label: '실행 계획', href: '#roadmap-section' },
-    { id: 'impact', label: '기대 효과', href: '#impact-section' },
-    { id: 'demo', label: '체험하기', href: '/demo' }
+    { id: 'ecosystem', label: 'AI 생태계', href: '/ai-ecosystem' },
+    { id: 'execution', label: '실행 계획', href: '/execution-plan' },
+    { id: 'impact', label: '기대 효과', href: '/expected-impact' },
+    { id: 'experience', label: '체험하기', href: '/experience' }
   ]
 
   useEffect(() => {
@@ -48,8 +48,9 @@ const Navigation = () => {
         setIsOpen(false)
       }
     } else {
-      // 외부 링크 또는 다른 페이지
-      window.open(href, '_self')
+      // 페이지 이동
+      window.location.href = href
+      setIsOpen(false)
     }
   }
 

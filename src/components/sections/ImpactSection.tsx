@@ -30,7 +30,7 @@ const ImpactSection = () => {
   const [timeframe, setTimeframe] = useState(3) // 3년
 
   // 시나리오 상태
-  const [activeScenario, setActiveScenario] = useState('realistic')
+  const [activeScenario, setActiveScenario] = useState<'conservative' | 'realistic' | 'optimistic'>('realistic')
 
   const scenarios = {
     conservative: {
@@ -328,7 +328,7 @@ const ImpactSection = () => {
                 {Object.entries(scenarios).map(([key, scenario]) => (
                   <motion.button
                     key={key}
-                    onClick={() => setActiveScenario(key)}
+                    onClick={() => setActiveScenario(key as 'conservative' | 'realistic' | 'optimistic')}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className={`w-full p-4 rounded-xl border-2 transition-all ${

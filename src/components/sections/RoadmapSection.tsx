@@ -309,7 +309,7 @@ const RoadmapSection = () => {
           <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
             🎯 성공 보장 요소
           </h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
@@ -340,6 +340,17 @@ const RoadmapSection = () => {
                 엄격한 평가 및 피드백
               </p>
             </div>
+          </div>
+          <div className="text-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/execution-plan'}
+              className="btn-primary flex items-center gap-2 mx-auto"
+            >
+              상세 실행 계획 보기
+              <Target className="w-4 h-4" />
+            </motion.button>
           </div>
         </motion.div>
       </div>

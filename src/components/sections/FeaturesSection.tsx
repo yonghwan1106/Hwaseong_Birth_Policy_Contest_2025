@@ -356,11 +356,20 @@ const FeaturesSection = () => {
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               🎯 하나로 연결된 통합 시스템
             </h3>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-gray-600 max-w-3xl mx-auto mb-6">
               5개 구성요소가 유기적으로 연결되어 <strong>완전한 육아 생태계</strong>를 제공합니다. 
               AI 상담에서 시작해 발달 분석, 돌봄 매칭, 정책 피드백, 기업 협력까지 
               <strong>원스톱 서비스</strong>로 육아의 모든 단계를 지원합니다.
             </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/ai-ecosystem'}
+              className="btn-primary flex items-center gap-2 mx-auto"
+            >
+              상세 설계 보기
+              <ChevronRight className="w-4 h-4" />
+            </motion.button>
           </div>
         </motion.div>
       </div>

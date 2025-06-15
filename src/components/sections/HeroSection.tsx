@@ -16,8 +16,8 @@ const HeroSection = () => {
   const stats = [
     { value: "2,945%", label: "투자 수익률", icon: "📈" },
     { value: "1.1명", label: "목표 출생률", icon: "👶" },
-    { value: "108억원", label: "연간 경제효과", icon: "💰" },
-    { value: "10개", label: "확산 지자체", icon: "🌍" }
+    { value: "324억원", label: "3년간 경제효과", icon: "💰" },
+    { value: "8개", label: "확산 지자체", icon: "🌍" }
   ]
 
   useEffect(() => {
@@ -174,7 +174,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary text-lg px-8 py-4 flex items-center gap-3 group"
-              onClick={() => document.getElementById('features-section')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.location.href = '/ai-ecosystem'}
             >
               <Brain className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               정책 제안 전체 보기
@@ -184,7 +184,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-secondary text-lg px-8 py-4 flex items-center gap-3 group"
-              onClick={() => document.getElementById('demo-section')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.location.href = '/experience'}
             >
               <Play className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               AI 체험하기

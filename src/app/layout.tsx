@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     '화성시', 'AI 육아', '저출생 대책', '육아 지원', '스마트 돌봄',
     '출산 정책', '혁신 정책', '디지털 헬스케어', '화성특례시'
   ],
-  authors: [{ name: '박용환', email: 'sanoramyun8@gmail.com' }],
+  authors: [{ name: '박용환' }],
   creator: '크리에이티브 넥서스',
   publisher: '화성시 저출생 극복 정책 제안팀',
   openGraph: {
