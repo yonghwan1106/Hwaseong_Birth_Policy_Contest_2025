@@ -1,0 +1,276 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv01', 'cv02', 'cv03', 'cv04';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 한글 폰트 최적화 */
+  .font-korean {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+  }
+
+  /* 제목용 폰트 */
+  .font-display {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  /* 버튼 컴포넌트 */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-600 border-2 border-primary-500 hover:bg-primary-50 font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-ghost {
+    @apply text-primary-600 hover:text-primary-700 hover:bg-primary-50 font-semibold px-4 py-2 rounded-lg transition-all duration-300;
+  }
+
+  /* 카드 컴포넌트 */
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 p-6;
+  }
+
+  .card-hover {
+    @apply hover:scale-105 hover:-translate-y-2 cursor-pointer;
+  }
+
+  /* 그래디언트 텍스트 */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-success-500 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-warm-500 to-orange-500 bg-clip-text text-transparent;
+  }
+
+  /* 섹션 컨테이너 */
+  .section {
+    @apply py-16 lg:py-24;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* 애니메이션 유틸리티 */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* 글로우 효과 */
+  .glow-blue {
+    @apply shadow-glow;
+  }
+
+  .glow-warm {
+    @apply shadow-glow-warm;
+  }
+
+  /* 커스텀 스크롤바 */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer utilities {
+  /* 텍스트 크기 유틸리티 */
+  .text-hero {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  .text-display {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  .text-heading {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  .text-subheading {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  /* 간격 유틸리티 */
+  .space-section {
+    @apply space-y-16 lg:space-y-24;
+  }
+
+  .space-content {
+    @apply space-y-8 lg:space-y-12;
+  }
+
+  /* 플렉스 센터 */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* 그리드 패턴 */
+  .grid-pattern {
+    background-image: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* 블러 백드롭 */
+  .backdrop-blur-glass {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  /* 호버 언더라인 */
+  .hover-underline {
+    @apply relative;
+  }
+
+  .hover-underline::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300;
+    content: '';
+  }
+
+  .hover-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* 점진적 표시 */
+  .reveal-delay-100 {
+    animation-delay: 100ms;
+  }
+  .reveal-delay-200 {
+    animation-delay: 200ms;
+  }
+  .reveal-delay-300 {
+    animation-delay: 300ms;
+  }
+  .reveal-delay-400 {
+    animation-delay: 400ms;
+  }
+  .reveal-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* 커스텀 애니메이션 키프레임 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: currentColor; }
+}
+
+/* 스크롤 인디케이터 */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0ea5e9, #22c55e);
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* 로딩 스피너 */
+.loading-spinner {
+  @apply w-8 h-8 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin;
+}
+
+/* 프린트 스타일 */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* 다크 모드 지원 (추후 확장용) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    /* 다크 모드 스타일 추가 가능 */
+  }
+}
+
+/* 접근성 개선 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 고해상도 디스플레이 최적화 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  .crisp-edges {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
